@@ -23,12 +23,12 @@ From the cloned source, execute:
 Running
 -------
 
-Once installed you can run the service using the `falcon-example` command.
+Once installed you can run the service using the ``falcon-example`` command.
 
 .. note::
 
     The service connects to a MySQL database. You'll need to edit the service
-    config in `etc/example/config.yml` to match your configuration.
+    config in ``etc/example/config.yml`` to match your configuration.
 
 Running Tests
 -------------
@@ -39,8 +39,4 @@ Install test requirements
 
     pip install -r dev-requirements.txt
 
-Execute the tests by running tox:
-
-.. code-block:: shell
-
-    tox
+Execute the tests by running the ``tox`` command:
