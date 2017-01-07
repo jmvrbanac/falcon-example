@@ -9,6 +9,7 @@ with the following features:
 * Simple ORM usage
 * Testing
 * CLI entrypoint
+* Middleware
 * Custom Gunicorn Workers
 
 Installation

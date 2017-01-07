@@ -1,12 +1,16 @@
 import falcon
 
 from example.db.manager import DBManager
+from example.middleware.context import ContextMiddleware
 from example.resources import scores
 
 
 class MyService(falcon.API):
     def __init__(self, cfg):
-        super(MyService, self).__init__()
+        super(MyService, self).__init__(
+            middleware=[ContextMiddleware()]
+        )
+
         self.cfg = cfg
 
         # Build an object to manager our db connections.
