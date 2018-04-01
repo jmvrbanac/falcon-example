@@ -27,7 +27,7 @@ setup(
     keywords='',
     packages=find_packages(exclude=['contrib', 'docs', 'test*']),
     install_requires=[
-        'falcon>=1.1.0',
+        'falcon>=1.4.1',
         'gunicorn>=19.6.0',
         'docopt>=0.6.2',
         'jsonschema>=2.5.1',

@@ -1,5 +1,4 @@
 import uuid
-import falcon
 
 
 def set_context(req, resp):

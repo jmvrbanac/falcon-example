@@ -1,8 +1,11 @@
 import falcon
+
+from falcon.media.validators.jsonschema import validate
+
 from sqlalchemy.exc import IntegrityError
 
 from example.db import models
-from example.resources import BaseResource, validate
+from example.resources import BaseResource
 from example.schemas import load_schema
 
 
@@ -13,16 +16,16 @@ class ScoresResource(BaseResource):
         scores = [model.as_dict for model in model_list]
 
         resp.status = falcon.HTTP_200
-        resp.body = self.format_body({
+        resp.media = {
             "scores": scores
-        })
+        }
 
     @validate(load_schema('scores_creation'))
-    def on_post(self, req, resp, parsed):
+    def on_post(self, req, resp):
         model = models.UserScores(
-            username=parsed.get('username'),
-            company=parsed.get('company'),
-            score=parsed.get('score')
+            username=req.media.get('username'),
+            company=req.media.get('company'),
+            score=req.media.get('score')
         )
 
         try:
@@ -34,6 +37,6 @@ class ScoresResource(BaseResource):
             )
 
         resp.status = falcon.HTTP_201
-        resp.body = self.format_body({
+        resp.media = {
             'id': model.id
-        })
+        }
