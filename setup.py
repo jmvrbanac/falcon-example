@@ -33,7 +33,7 @@ setup(
         'jsonschema>=2.5.1',
         'mysql-connector>=2.1.4',
         'sqlalchemy>=1.1.4',
-        'aumbry[yaml]>=0.2.0'
+        'aumbry[yaml]>=0.7.0'
     ],
     package_data={},
     data_files=[],

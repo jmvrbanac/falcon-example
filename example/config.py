@@ -1,19 +1,20 @@
-import aumbry
+from aumbry import Attr, YamlConfig
 
 
-class DatabaseConfig(aumbry.YamlConfig):
+class DatabaseConfig(YamlConfig):
     __mapping__ = {
-        'connection': ['connection', str],
+        'connection': Attr('connection', str),
     }
 
     connection = ''
 
 
-class AppConfig(aumbry.YamlConfig):
+class AppConfig(YamlConfig):
     __mapping__ = {
-        'db': ['db', DatabaseConfig],
-        'gunicorn': ['gunicorn', dict],
+        'db': Attr('db', DatabaseConfig),
+        'gunicorn': Attr('gunicorn', dict),
     }
 
-    db = DatabaseConfig()
-    gunicorn = {}
+    def __init__(self):
+        self.db = DatabaseConfig()
+        self.gunicorn = {}
