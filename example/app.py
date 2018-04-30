@@ -13,7 +13,7 @@ class MyService(falcon.API):
 
         self.cfg = cfg
 
-        # Build an object to manager our db connections.
+        # Build an object to manage our db connections.
         mgr = DBManager(self.cfg.db.connection)
         mgr.setup()
 
