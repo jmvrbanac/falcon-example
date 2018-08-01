@@ -30,6 +30,14 @@ Once installed you can run the service using the ``falcon-example`` command.
 
     The service connects to a MySQL database. You'll need to edit the service
     config in ``etc/example/config.yml`` to match your configuration.
+  
+You can also use the Docker Compose setup:
+
+.. code-block:: shell
+
+    docker-compose run --service-ports 8000:8000 app bash
+    pip install -e .
+    falcon-example
 
 Running Tests
 -------------
