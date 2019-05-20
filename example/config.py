@@ -12,7 +12,7 @@ class DatabaseConfig(YamlConfig):
 class AppConfig(YamlConfig):
     __mapping__ = {
         'db': Attr('db', DatabaseConfig, required=True),
-        'gunicorn': Attr('gunicorn', dict),
+        'gunicorn': Attr('gunicorn', dict, required=True),
     }
 
     def __init__(self):
